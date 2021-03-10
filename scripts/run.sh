@@ -14,9 +14,10 @@ spider  -o spider-json  ${MODULEPATH} | python  -mjson.tool  > ${DIR}/modules.js
 python ${DIR}/parse.py
 mv data.json ${DIR}/../data.json
 
+
+GIT_SSH_COMMAND="ssh -i ${DIR}/id_rsa" git pull --no-edit
 git add ${DIR}/../data.json
 git commit -m "`date` modules updated"
-
 GIT_SSH_COMMAND="ssh -i ${DIR}/id_rsa" git push
 
 
