@@ -88,8 +88,15 @@
 <script defer src="fontawesome/js/all.js"></script>
 <script>
 $(document).ready(function() {
+    var oldStart = 0;
     var popup = new Foundation.Reveal($('#edit_modal'));
     var oTable = $('#example').DataTable( {
+            "sPaginationType": "full_numbers",
+            "fnDrawCallback": function (o) {
+            if ( o._iDisplayStart != oldStart ) {
+              var targetOffset = $('#example').offset().top;
+              $('html,body').animate({scrollTop: targetOffset}, 500);
+              oldStart = o._iDisplayStart;}},    
             "pageLength": 25,
             "columns": [
             { "width": "10%" ,'searchable': false, 'orderable': false},
