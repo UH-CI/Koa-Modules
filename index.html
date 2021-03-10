@@ -99,6 +99,7 @@ $(document).ready(function() {
               $('html,body').animate({scrollTop: targetOffset}, 500);
               oldStart = o._iDisplayStart;}},    
             "pageLength": 25,
+            "order": [[1, "desc"]],
             "columns": [
             { "width": "10%" ,'searchable': false, 'orderable': false},
             { "width": "20%" , 'searchable': true, },
@@ -112,7 +113,7 @@ $(document).ready(function() {
                 for (var i = 0, ien = json.data.length; i < ien; i++) {
                     var jd = json.data[i];
                     if(jd[4]){
-                      json.data[i][1] = "<a target='_blank' href='"+ jd[4] +"' >"+ jd[1] +"</a>";
+                      json.data[i][1] = "<a target='_blank' title='"+jd[1]+"' href='"+ jd[4] +"' >"+ jd[1] +"</a>";
                     }
                     json.data[i].pop();
                    json.data[i][0] = "<span class='cp'><i class='fas fa-copy'></i></span><input type='hidden' class='name' value='"+jd[0]+"'>";
