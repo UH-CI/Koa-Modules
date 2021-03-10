@@ -1,8 +1,44 @@
 <html>
 <head>
 <title>Mana Software Modules</title>
+<link href="https://cdn.datatables.net/1.10.24/css/dataTables.foundation.min.css" rel="stylesheet"/>
+
 </head>
 <body>
 <h1>Hello World</h1>
+<table id="example" class="display" style="width:100%">
+        <thead>
+            <tr>
+                <th>Parent</th>
+                <th>Name</th>
+                <th>Version</th>
+                <th>Hidden</th>
+                <th>Description</th>
+                <th>Website</th>
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+
+                <th>Parent</th>
+                <th>Name</th>
+                <th>Version</th>
+                <th>Hidden</th>
+                <th>Description</th>
+                <th>Website</th>
+            </tr>
+        </tfoot>
+    </table>
+
+
+<script defer="" src="https://cdn.datatables.net/1.10.24/js/jquery.dataTables.min.js"></script>
+<script defer="" src="https://cdn.datatables.net/1.10.24/js/dataTables.foundation.min.js"></script>
+<script>
+$(document).ready(function() {
+    $('#example').DataTable( {
+        "ajax": './data.json'
+    } );
+} );
+</script>
 </body>
 </html>
