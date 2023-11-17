@@ -12,6 +12,7 @@ DIR="$( cd -P "$( dirname "$SOURCE" )" >/dev/null 2>&1 && pwd )"
 
 oldcwd=`pwd`
 
+export MODULEPATH=/usr/share/lmod/lmod/modulefiles/Core
 module load lmod
 export MODULEPATH=/opt/apps/modules/all
 
@@ -22,10 +23,10 @@ python parse.py
 mv data.json ../data.json
 cd ..
 
-GIT_SSH_COMMAND="ssh -i ${DIR}/id_rsa" git pull --no-edit
+GIT_SSH_COMMAND="ssh -i ${DIR}/.ssh/id_ed25519" git pull --no-edit
 git add data.json
 git commit -m "`date` modules updated"
-GIT_SSH_COMMAND="ssh -i ${DIR}/id_rsa" git push
+GIT_SSH_COMMAND="ssh -i ${DIR}/.ssh/id_ed25519" git push
 
 cd ${oldcwd}
 exit 0

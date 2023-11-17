@@ -1,4 +1,5 @@
-id_rsa
-id_rsa.pub
+.ssh
+id_*
+id_*.pub
 modules.json
 *~
