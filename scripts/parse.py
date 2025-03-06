@@ -9,6 +9,7 @@ for k, v in json.load(open("modules.json")).items():
     data.append([y['fullName'], k, y['Version'], y.get("Description", ""), y.get('URL',"")])
     #entries.append(dict(parent=k, name=y['fullName'], version=y['Version'], hidden=y['hidden'], description=y.get("Description", ""), url=y.get('URL',"")  ))
   #data[k] = entries
+data.sort()
 with open("data.json","w") as o:
   o.write(json.dumps(dict(data=data)))
 
